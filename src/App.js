@@ -1,28 +1,26 @@
 import React from 'react';
 import fetch from 'node-fetch';
-import axios from 'axios';
+const { fetchData } = require('./http');
 
 export default class App extends React.Component {
 
   constructor(){
     super();
+    
     this.state = {
       title1: "API1",
       title2: "API2",
       title3: "API3",
-      data: {
-        "movies": [{"id" : "not set"},]
-      },
-      data1: {
-        "id": ["not set"]
-      },
-      data2: {
-        "movies": [{"releaseYear" : "not set"}]
-      },
+      title4: "API4",
+      data: {"movies": [{"id" : "not set"}]},
+      data1: {"id": ["not set"]},
+      data2: {"movies": [{"releaseYear" : "not set"}]},
     }
+
     this.changeTitle1 = this.changeTitle1.bind(this);
     this.changeTitle2 = this.changeTitle2.bind(this);
     this.changeTitle3 = this.changeTitle3.bind(this);
+    this.changeTitle4 = this.changeTitle4.bind(this);
   }
 
   async API_POST() {
@@ -62,10 +60,20 @@ export default class App extends React.Component {
     })
   }
 
-  changeTitle1(){
+  async loadTitle(){
+    return fetchData().then(ext =>{
+      const title = ext.title;
+      const upper_title = title.toUpperCase();
+      return upper_title;
+    })
+  }
+
+  async changeTitle1(){
     this.setState({ title1: "Calling API1..." });
-    this.API_GET();
+    // this.setState({ data: {"movies": [{"id" : "1"},]} });
+    return this.API_GET();
   };
+
 
   changeTitle2(){
     this.setState({ title2: "Calling API2...(Please Wait)" });
@@ -75,6 +83,12 @@ export default class App extends React.Component {
   changeTitle3(){
     this.setState({ title3: "Calling API3..." });
     this.API_GET1();
+  };
+
+  changeTitle4(){
+    this.loadTitle().then(title => {
+      console.log(title);
+    });
   };
 
   render() {
@@ -92,6 +106,7 @@ export default class App extends React.Component {
         <p>
             {this.state.data2.movies[0].releaseYear}
         </p>
+        <button id = "button4" onClick={this.changeTitle4}>{this.state.title4}</button><br/>
       </div>
     );
   }
