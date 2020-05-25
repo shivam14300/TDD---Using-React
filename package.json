@@ -1,0 +1,61 @@
+{
+  "name": "learn-tdd-in-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/user-event": "^7.2.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "body-parser": "^1.19.0",
+    "enzyme-to-json": "^3.4.4",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "rest": "^2.0.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest --detectOpenHandles",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.6",
+    "@testing-library/react": "^9.5.0",
+    "axios": "^0.19.2",
+    "babel-jest": "^26.0.1",
+    "cypress": "^4.6.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^24.9.0",
+    "jest-runtime": "^26.0.1",
+    "react-google-login": "^5.1.20",
+    "supertest": "^4.0.2",
+    "typescript": "^3.9.3"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.1.3"
+  }
+}
