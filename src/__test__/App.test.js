@@ -4,6 +4,15 @@ import React from 'react';
 import App from '../App';
 import { shallow } from 'enzyme';
 import '../setupTests';
+import renderer from 'react-test-renderer';
+
+test ('test snapshot', () => {
+  const component = renderer.create(<App/>);
+  component.update();
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+}) 
+
 
 describe('test', () => {
   it('test1', () => {
