@@ -1,3 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test snapshot 1`] = `null`;
+exports[`test snapshot 1`] = `
+<div>
+  <button
+    id="button1"
+    onClick={[Function]}
+  >
+    API1
+  </button>
+  <br />
+  <p
+    id="para"
+  >
+    not set
+  </p>
+  <button
+    id="button2"
+    onClick={[Function]}
+  >
+    API2
+  </button>
+  <br />
+  <p>
+    not set
+  </p>
+  <button
+    id="button3"
+    onClick={[Function]}
+  >
+    API3
+  </button>
+  <br />
+  <p>
+    not set
+  </p>
+  <button
+    id="button4"
+    onClick={[Function]}
+  >
+    API4
+  </button>
+  <br />
+</div>
+`;
