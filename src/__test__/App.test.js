@@ -2,16 +2,20 @@
 
 import React from 'react';
 import App from '../App';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import '../setupTests';
 import renderer from 'react-test-renderer';
 
 describe ('Snapshot Testing', () => {
   it ('test snapshot on initial rendering', () => {
-    expect.assertions (1);
     const component = renderer.create (<App />);
+    // console.log (component);
+    // console.log (component.toJSON ());
     let tree = component.toJSON ();
     expect (tree).toMatchSnapshot ();
+
+    // const component = shallow (<App />);
+    // expect (component).toMatchSnapshot;
   });
 
   it (
@@ -19,12 +23,25 @@ describe ('Snapshot Testing', () => {
     () => {
       expect.assertions (1);
       const component = renderer.create (<App />);
-      return component.getInstance ().API_GET ().then (() => {
+      return component.getInstance ().changeTitle1 ().then (() => {
         let tree = component.toJSON ();
         expect (tree).toMatchSnapshot ();
       });
     },
     1000000
+  );
+
+  it (
+    'test snapshot after API_GET1',
+    () => {
+      expect.assertions (1);
+      const component = renderer.create (<App />);
+      return component.getInstance ().API_GET1 ().then (() => {
+        let tree = component.toJSON ();
+        expect (tree).toMatchSnapshot ();
+      });
+    },
+    100000
   );
 
   // it (
@@ -39,19 +56,6 @@ describe ('Snapshot Testing', () => {
   //   },
   //   10000000
   // );
-
-  it (
-    'test snapshot after API_GET1',
-    () => {
-      expect.assertions (1);
-      const component = renderer.create (<App />);
-      return component.getInstance ().API_GET1 ().then (() => {
-        let tree = component.toJSON ();
-        expect (tree).toMatchSnapshot ();
-      });
-    },
-    100000
-  );
 });
 
 describe ('Mock Testing', () => {
@@ -103,35 +107,35 @@ describe ('Testing API function', () => {
   });
 });
 
-describe ('Testing methods of API call using Async functions', () => {
-  it (
-    'Api fetch testing for GET',
-    async () => {
-      const res = new App ();
-      var data = await res.API_GET ();
-      expect (data.movies[0].id).toEqual ('1');
-      expect (data.movies[1]).toHaveProperty (['releaseYear'], '1985');
-    },
-    100000
-  );
+// describe ('Testing methods of API call using Async functions', () => {
+//   it (
+//     'Api fetch testing for GET',
+//     async () => {
+//       const res = new App ();
+//       var data = await res.API_GET ();
+//       expect (data.movies[0].id).toEqual ('1');
+//       expect (data.movies[1]).toHaveProperty (['releaseYear'], '1985');
+//     },
+//     100000
+//   );
 
-  it (
-    'Api fetch testing for POST',
-    async () => {
-      const res = new App ();
-      var data = await res.API_POST ();
-      expect (data.id).toEqual (101);
-    },
-    100000000
-  );
-});
+//   it (
+//     'Api fetch testing for POST',
+//     async () => {
+//       const res = new App ();
+//       var data = await res.API_POST ();
+//       expect (data.id).toEqual (101);
+//     },
+//     100000000
+//   );
+// });
 
-describe ('Test rendering', () => {
-  it ('Test that text is rendered', () => {
-    const wrapper = shallow (<App />);
-    expect (wrapper.find ('#para').text ()).toEqual ('not set');
-    wrapper.find ('#button1').simulate ('click');
-    wrapper.update ();
-    // expect(wrapper.find('#para').text()).toEqual("1")
-  });
-});
+// describe ('Test rendering', () => {
+//   it ('Test that text is rendered', () => {
+//     const wrapper = shallow (<App />);
+//     expect (wrapper.find ('#para').text ()).toEqual ('not set');
+//     wrapper.find ('#button1').simulate ('click');
+//     wrapper.update ();
+//     expect(wrapper.find('#para').text()).toEqual("1")
+//   });
+// });

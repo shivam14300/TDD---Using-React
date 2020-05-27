@@ -114,7 +114,7 @@ export default class App extends React.Component {
           {this.state.title3}
         </button>
         <br />
-        <p style={{color: 'red'}}>
+        <p style={{color: 'green'}}>
           {this.state.data2.movies[0].releaseYear}
         </p>
         <button id="button4" onClick={this.changeTitle4}>

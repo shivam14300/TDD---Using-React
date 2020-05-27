@@ -6,7 +6,7 @@ exports[`Snapshot Testing test snapshot after API_GET 1`] = `
     id="button1"
     onClick={[Function]}
   >
-    API1
+    Calling API1...
   </button>
   <br />
   <p
@@ -34,7 +34,7 @@ exports[`Snapshot Testing test snapshot after API_GET 1`] = `
   <p
     style={
       Object {
-        "color": "red",
+        "color": "green",
       }
     }
   >
@@ -84,7 +84,7 @@ exports[`Snapshot Testing test snapshot after API_GET1 1`] = `
   <p
     style={
       Object {
-        "color": "red",
+        "color": "green",
       }
     }
   >
@@ -134,7 +134,7 @@ exports[`Snapshot Testing test snapshot on initial rendering 1`] = `
   <p
     style={
       Object {
-        "color": "red",
+        "color": "green",
       }
     }
   >
