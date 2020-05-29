@@ -130,6 +130,8 @@ describe('Testing methods of API call using Async functions', () => {
   );
 });
 
+//testing branch
+
 // describe ('Test rendering', () => {
 //   it ('Test that text is rendered', () => {
 //     const wrapper = shallow (<App />);
