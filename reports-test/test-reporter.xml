@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="/home/bansalji/jio/TDD---Using-React/src/__test__/App.test.js">
+        <testCase name="Snapshot Testing test snapshot on initial rendering" duration="14"/>
+        <testCase name="Snapshot Testing test snapshot after API_GET" duration="5579"/>
+        <testCase name="Snapshot Testing test snapshot after API_GET1" duration="664"/>
+        <testCase name="Mock Testing Mocking axios get function" duration="10"/>
+        <testCase name="Testing Button Clicks Testing Button Click of API1" duration="4"/>
+        <testCase name="Testing Button Clicks Testing Button Click of API2" duration="15"/>
+        <testCase name="Testing Button Clicks Testing Button Click of API3" duration="6"/>
+        <testCase name="Testing API function check that function API_GET is defined" duration="1"/>
+        <testCase name="Testing API function check that function API_GET is called on click" duration="2"/>
+        <testCase name="Testing API function check that function API_GET returns successfully on calling" duration="1"/>
+    </file>
+</testExecutions>
